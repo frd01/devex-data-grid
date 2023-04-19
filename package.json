@@ -1,0 +1,30 @@
+{
+  "dependencies": {
+    "@devextreme/runtime": "3.0.11",
+    "devexpress-diagram": "2.1.72",
+    "devexpress-gantt": "4.1.42",
+    "devextreme": "22.2.5",
+    "devextreme-quill": "1.5.20",
+    "devextreme-vue": "22.2.5",
+    "dx-systemjs-vue-browser": "1.0.15",
+    "es6-object-assign": "1.1.0",
+    "inferno": "7.4.11",
+    "inferno-clone-vnode": "latest",
+    "inferno-compat": "latest",
+    "inferno-create-class": "latest",
+    "inferno-create-element": "7.4.11",
+    "inferno-dom": "latest",
+    "inferno-extras": "latest",
+    "inferno-hydrate": "7.4.11",
+    "jszip": "3.7.1",
+    "luxon": "1.28.0",
+    "mitt": "latest",
+    "prettier": "2.8.4",
+    "rrule": "2.6.4",
+    "vue": "3.2.47",
+    "vuex": "4.0.0-beta.4",
+    "whatwg-fetch": "2.0.4"
+  },
+  "description": "Our DataGrid component manages its edit state automatically. If your use case requires full control over the editing process, you can use the API members below to manage state manually. In this demo, we manage state with a help of the Vuex library.\nComponent Properties\n\n\nediting.editRowKey\nThe key for the row being edited.\n\n\nediting.editColumnName\nThe name or data field of the column being edited.\n\n\nediting.changes\nPending row changes.\n\n\nUse these properties to access and change edit state. Two-way bind them to component properties so that you can get and set the properties at runtime. In this demo, we bind the editRowKey and changes properties to computed properties and display their values under the DataGrid.\nUtility Method\n\nDevExpress.data.applyChanges(data, changes, options)\nApplies an array of changes to a source data array.\n\nEvent Handlers\n\n\nonSaving / onSaved\nFunctions that are called before / after pending row changes are saved via the UI or programmatically.\n\n\nonEditCanceling / onEditCanceled\nFunctions that are called before / after editing is canceled and pending row changes are discarded.\n\n\nUse these functions to perform custom actions. In this demo, the onSaving function sends pending changes to a server. The function's parameter e contains fields for this capability. To implement the same in your application, follow these steps:\n\n\nDisable built-in edit state management\nSet the e.cancel field to true.\n\n\nSend a request to the server\nPending changes are stored in the e.changes array. This array has only a single element in all edit modes, except for batch. Check if this element is not empty and send it to the server (see the saveChange action in store.js).\n\n\nApply the same changes to the DataGrid's data source\nIf the server successfully saves changes, call the applyChanges method to save the same changes in the DataGrid's data source (see the updateOrders mutation in store.js).\n\n\nReset edit state\nAssign null to the editRowKey and an empty array to the changes property (see the updateEditRowKey and updateChanges mutations in store.js).\n\n\n",
+  "name": "Edit State Management - DevExtreme Data Grid"
+}
